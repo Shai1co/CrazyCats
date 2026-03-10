@@ -22,5 +22,17 @@ const config = {
   scene: [TitleScene, GameScene],
 };
 
+// Patch Phaser text factory to render at higher resolution
+// Scale.FIT stretches 800×600 canvas to window, making text blurry.
+// Force 3x resolution so text stays crisp when upscaled.
+const _origText = Phaser.GameObjects.GameObjectFactory.prototype.text;
+Phaser.GameObjects.GameObjectFactory.prototype.text = function (x, y, text, style) {
+  style = style || {};
+  if (!style.resolution) {
+    style.resolution = 3;
+  }
+  return _origText.call(this, x, y, text, style);
+};
+
 const game = new Phaser.Game(config);
 window.__PHASER_GAME__ = game;
