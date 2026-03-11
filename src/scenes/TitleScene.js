@@ -14,6 +14,9 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
+    // Zoom camera 2x so 1600×1200 canvas shows 800×600 game area = crisp text
+    this.cameras.main.setZoom(2).centerOn(400, 300);
+
     generateSprites(this);
     soundManager.init();
 

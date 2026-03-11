@@ -22,6 +22,9 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create(data) {
+    // Zoom camera 2x so 1600×1200 canvas shows 800×600 game area = crisp text
+    this.cameras.main.setZoom(2).centerOn(400, 300);
+
     // Difficulty settings from title screen
     this.difficulty = data?.difficulty || 'normal';
     this.decayMult = data?.decayMult || 1.0;

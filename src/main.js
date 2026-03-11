@@ -4,8 +4,8 @@ import GameScene from './scenes/GameScene.js';
 
 const config = {
   type: Phaser.CANVAS,
-  width: 800,
-  height: 600,
+  width: 1600,
+  height: 1200,
   parent: 'game-container',
   backgroundColor: '#1a1a2e',
   roundPixels: true,
