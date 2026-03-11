@@ -128,21 +128,29 @@ export default class TitleScene extends Phaser.Scene {
         ease: 'Sine.easeInOut',
       });
 
-      // Cat name
-      this.add.text(x, 278, names[i], {
-        fontSize: '10px',
+      // Cat name with background
+      const nameBg = this.add.graphics();
+      const nameText = this.add.text(x, 280, names[i], {
+        fontSize: '12px',
         fontFamily: 'Arial',
         color: '#ecf0f1',
         fontStyle: 'bold',
       }).setOrigin(0.5);
+      const nb = nameText.getBounds();
+      nameBg.fillStyle(0x000000, 0.5);
+      nameBg.fillRoundedRect(nb.x - 4, nb.y - 2, nb.width + 8, nb.height + 4, 4);
 
-      // Personality badge
-      this.add.text(x, 293, `${persEmojis[i]} ${personalities[i]}`, {
-        fontSize: '8px',
+      // Personality badge with background
+      const badgeBg = this.add.graphics();
+      const badgeText = this.add.text(x, 296, `${persEmojis[i]} ${personalities[i]}`, {
+        fontSize: '10px',
         fontFamily: 'Arial',
         color: persColors[i],
         fontStyle: 'italic',
       }).setOrigin(0.5);
+      const bb = badgeText.getBounds();
+      badgeBg.fillStyle(0x000000, 0.4);
+      badgeBg.fillRoundedRect(bb.x - 3, bb.y - 1, bb.width + 6, bb.height + 2, 3);
     });
 
     // Floating sparkle particles across the screen
@@ -167,16 +175,16 @@ export default class TitleScene extends Phaser.Scene {
 
     // --- Difficulty Selection ---
     this.add.text(400, 320, 'SELECT DIFFICULTY', {
-      fontSize: '14px',
+      fontSize: '15px',
       fontFamily: 'Arial',
-      color: '#7f8c8d',
+      color: '#95a5a6',
       fontStyle: 'bold',
     }).setOrigin(0.5);
 
     this.diffButtons = {};
     this.diffBgs = {};
     this.diffDescText = this.add.text(400, 395, DIFFICULTIES.normal.desc, {
-      fontSize: '11px',
+      fontSize: '13px',
       fontFamily: 'Arial',
       color: '#f39c12',
       fontStyle: 'italic',
@@ -306,25 +314,25 @@ export default class TitleScene extends Phaser.Scene {
     }
 
     // How to play hint
-    this.add.text(400, 565, '🍖 Feed  ·  🧹 Clean  ·  🎾 Entertain  ·  🖱️ Click cats to care for them!', {
-      fontSize: '10px',
+    this.add.text(400, 562, '🍖 Feed  ·  🧹 Clean  ·  🎾 Entertain  ·  🖱️ Click cats to care for them!', {
+      fontSize: '12px',
       fontFamily: 'Arial',
-      color: '#7f8c8d',
+      color: '#95a5a6',
     }).setOrigin(0.5);
 
     // Footer
     this.add.text(400, 582, '⚠️ No actual cats were harmed. The wine is theirs.', {
-      fontSize: '9px',
+      fontSize: '10px',
       fontFamily: 'Arial',
-      color: '#555',
+      color: '#666',
       fontStyle: 'italic',
     }).setOrigin(0.5);
 
     // Version
     this.add.text(790, 595, 'v0.5', {
-      fontSize: '8px',
+      fontSize: '9px',
       fontFamily: 'Arial',
-      color: '#333',
+      color: '#444',
     }).setOrigin(1, 1);
   }
 

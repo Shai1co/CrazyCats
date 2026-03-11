@@ -433,14 +433,14 @@ export default class GameScene extends Phaser.Scene {
 
   createFurniture() {
     this.add.image(400, 130, 'window').setScale(1.5);
-    this.add.image(80, 130, 'poster_shred').setScale(1.3);
-    this.add.image(220, 100, 'poster_nips').setScale(1.2);
-    this.add.image(580, 110, 'poster_laser').setScale(1.2);
-    this.add.image(720, 130, 'poster_chaos').setScale(1.3);
+    this.add.image(80, 130, 'poster_shred').setScale(1.05);
+    this.add.image(220, 100, 'poster_nips').setScale(1.0);
+    this.add.image(580, 110, 'poster_laser').setScale(1.0);
+    this.add.image(720, 130, 'poster_chaos').setScale(1.05);
 
     // Extra humor posters tucked in
-    this.add.image(140, 180, 'poster_wine').setScale(0.8).setAlpha(0.85);
-    this.add.image(690, 210, 'poster_3am').setScale(0.7).setAlpha(0.85);
+    this.add.image(140, 180, 'poster_wine').setScale(0.65).setAlpha(0.85);
+    this.add.image(690, 210, 'poster_3am').setScale(0.55).setAlpha(0.85);
 
     this.add.image(400, 295, 'couch').setScale(1.3).setDepth(1);
     this.add.image(100, 350, 'scratch_post').setScale(1.1).setDepth(1);
@@ -708,11 +708,11 @@ export default class GameScene extends Phaser.Scene {
     this.createActionButton(600, 560, '🎾 ENTERTAIN', 'entertain', 0xf39c12, '3');
 
     // Instruction text with rotating tips
-    this.instructionText = this.add.text(400, 530, 'Click an action, then click a cat! (or just click a cat for smart-action)', {
-      fontSize: '10px',
+    this.instructionText = this.add.text(400, 516, 'Click an action, then click a cat! (or just click a cat for smart-action)', {
+      fontSize: '11px',
       fontFamily: 'Arial',
-      color: '#7f8c8d',
-    }).setOrigin(0.5, 0).setDepth(11);
+      color: '#bdc3c7',
+    }).setOrigin(0.5, 1).setDepth(11);
 
     // Rotate tips every 8 seconds
     const tips = [

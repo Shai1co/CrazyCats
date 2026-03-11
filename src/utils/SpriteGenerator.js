@@ -436,29 +436,29 @@ function generatePosters(scene) {
   ];
 
   posters.forEach(p => {
-    const canvas = scene.textures.createCanvas(p.key, 64, 80);
+    const canvas = scene.textures.createCanvas(p.key, 80, 90);
     const ctx = canvas.context;
-    ctx.clearRect(0, 0, 64, 80);
+    ctx.clearRect(0, 0, 80, 90);
 
     // Background
     ctx.fillStyle = p.color;
-    ctx.fillRect(2, 2, 60, 76);
+    ctx.fillRect(2, 2, 76, 86);
     ctx.strokeStyle = '#111';
     ctx.lineWidth = 2;
-    ctx.strokeRect(2, 2, 60, 76);
+    ctx.strokeRect(2, 2, 76, 86);
 
     // Border accent
     ctx.strokeStyle = p.accent;
     ctx.lineWidth = 2;
-    ctx.strokeRect(6, 6, 52, 68);
+    ctx.strokeRect(6, 6, 68, 78);
 
     // Text
     ctx.fillStyle = p.accent;
-    ctx.font = 'bold 10px Arial';
+    ctx.font = 'bold 9px Arial';
     ctx.textAlign = 'center';
     const lines = p.text.split('\n');
     lines.forEach((line, i) => {
-      ctx.fillText(line, 32, 28 + i * 16);
+      ctx.fillText(line, 40, 30 + i * 18);
     });
 
     canvas.refresh();
